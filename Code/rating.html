@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rate My Website</title>
+  <link rel="icon" href="download-removebg-preview.png">
+  <link rel="stylesheet" href="rating.css">
+  
+</head>
+<body data-new-gr-c-s-check-loaded="14.1136.0" data-gr-ext-installed="">
+  
+  <script type="module" src="rating.js"></script>
+  <div class="container">
+
+    <div class="wraper">
+  
+      <div class="stars" style="--rating-pos: 4;">
+  
+        <div class="star" style="--star-rate: 0;"></div>
+        <div class="star" style="--star-rate: 0;"></div>
+        <div class="star" style="--star-rate: 0;"></div>
+        <div class="star" style="--star-rate: 0;"></div>
+        <div class="star" style="--star-rate: 0;"></div>
+        <div class="tooltip rating" data-rating="0.0"></div>
+  
+      </div>
+      <div class="shadows">
+  
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+        <div class="star"></div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+    <div class="btn_container">
+      <button id="btn">
+          <p id="btnText">Submit</p>
+          <div class="check-box">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+                  <path fill="transparent" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              </svg>
+          </div>
+      </button>
+  </div>
+  <script type="text/javascript">
+      const btn = document.querySelector("#btn");
+      const btnText = document.querySelector("#btnText");
+
+      btn.onclick = () => {
+          btnText.innerHTML = "Thanks";
+          btn.classList.add("active");
+      };
+      btn.ondblclick = () => {
+        document.location='about.html'
+      }
+  </script>
+<!-- Code injected by live-server -->
+<script>
+// <![CDATA[  <-- For SVG support
+if ('WebSocket' in window) {
+  (function () {
+    function refreshCSS() {
+      var sheets = [].slice.call(document.getElementsByTagName("link"));
+      var head = document.getElementsByTagName("head")[0];
+      for (var i = 0; i < sheets.length; ++i) {
+        var elem = sheets[i];
+        var parent = elem.parentElement || head;
+        parent.removeChild(elem);
+        var rel = elem.rel;
+        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+          var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+          elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+        }
+        parent.appendChild(elem);
+      }
+    }
+    var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+    var address = protocol + window.location.host + window.location.pathname + '/ws';
+    var socket = new WebSocket(address);
+    socket.onmessage = function (msg) {
+      if (msg.data == 'reload') window.location.reload();
+      else if (msg.data == 'refreshcss') refreshCSS();
+    };
+    if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+      console.log('Live reload enabled.');
+      sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+    }
+  })();
+}
+else {
+  console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+}
+// ]]>
+</script>
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

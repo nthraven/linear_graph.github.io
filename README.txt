@@ -1,0 +1,1 @@
+Please start with the about.html file so that you may access the whole website without any errors.

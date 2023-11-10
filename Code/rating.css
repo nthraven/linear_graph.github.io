@@ -1,0 +1,206 @@
+body{
+  display: flex;
+  flex-direction: column;
+}
+:root {
+  --tooltip-color: aliceblue;
+  --star-void-color: hsl(208, 25%, 10%);
+  --star-color: rgb(255, 255, 0);
+  --star-shape: polygon(
+    50% 4%,
+    61% 39%,
+    98% 39%,
+    68% 61%,
+    79% 95%,
+    50% 74%,
+    21% 95%,
+    32% 61%,
+    2% 39%,
+    39% 39%
+  );
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(208, 25%, 20%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-size: 16px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+}
+
+.wraper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stars,
+.shadows {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 1em;
+  gap: 0.25em;
+}
+
+.shadows {
+  z-index: -1;
+  isolation: isolate;
+  pointer-events: none;
+}
+
+.stars {
+  cursor: pointer;
+}
+
+.star {
+  /*  star shape path  */
+  clip-path: var(--star-shape);
+  background-color: var(--star-void-color);
+  width: 3em;
+  aspect-ratio: 1;
+
+  pointer-events: none;
+}
+
+.stars .star {
+  background-color: transparent;
+  background-image: linear-gradient(
+    var(--star-color) 0%,
+    var(--star-color) 100%
+  );
+  background-size: 200%;
+  background-repeat: repeat-y;
+  background-position-x: calc((100 + (100 - var(--star-rate, 0))) * 1%);
+}
+
+.tooltip {
+  position: absolute;
+  background-color: var(--tooltip-color);
+  border-radius: var(--tooltip-border-rad, 0.25em);
+  z-index: 100;
+}
+
+.rating {
+  padding: 0.25em;
+  transform: translateX(calc(-50% - 1em + var(--rating-pos, 0) * 1px));
+  bottom: calc(100% + 0.5em);
+  filter: drop-shadow(2px 2px 5px black);
+}
+
+.rating::after {
+  content: attr(data-rating);
+}
+
+.rating::before {
+  content: "";
+  clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
+  display: block;
+  position: absolute;
+  background-color: var(--tooltip-color);
+  width: 100%;
+  height: 0.5em;
+  top: calc(100% - 0.25em);
+  left: 0;
+}
+
+.button {
+    display: block;
+}  
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 270px;
+    height: 80px;
+    border: none;
+    outline: none;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.check-box{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+    box-shadow: 0 0 12px -2px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0;
+    right: -40px;
+    opacity: 0;
+}
+
+.check-box svg{
+    width: 40px;
+    margin: 20px;
+}
+
+svg path{
+    stroke-width: 3;
+    stroke: #fff;
+    stroke-dasharray: 34;
+    stroke-dashoffset: 34;
+    stroke-linecap: round;
+}
+
+.active{
+    background: #ff2b75;
+    transition: 1s;
+}
+
+.active .check-box{
+    right: 0;
+    opacity: 1;
+    transition: 1s;
+}
+
+.active p{
+    margin-right: 125px;
+    transition: 1s;
+}
+
+.active svg path{
+    stroke-dashoffset: 0;
+    transition: 1s;
+    transition-delay: 1s;
+}
